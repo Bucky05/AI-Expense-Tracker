@@ -1,0 +1,84 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(120deg, #6f86d6, #48c6ef);
+  color: #222;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.auth-container, .dashboard {
+  width: 90%;
+  max-width: 600px;
+  margin: 60px auto;
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.auth-container h2, .dashboard h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input, textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background: #48c6ef;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #6f86d6;
+}
+
+.expense-list {
+  margin-top: 20px;
+  display: grid;
+  gap: 10px;
+}
+
+.expense-card {
+  background: #f3f7ff;
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+
+.ai-box {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ai-response {
+  background: #eef6ff;
+  padding: 15px;
+  border-radius: 8px;
+  white-space: pre-line;
+}
+
+.logout-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.logout-button button {
+  border: 1px solid;
+  
+}
