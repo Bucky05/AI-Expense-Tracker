@@ -21,6 +21,7 @@ const Dashboard = () => {
     e.preventDefault();
     await API.post("/expenses/", form);
     fetchExpenses();
+    setForm({ title: "", category: "", amount: "", date: "" });
   };
 
   const handleAIQuery = async () => {
@@ -36,17 +37,24 @@ const Dashboard = () => {
 
       <div className="expense-form">
         <form onSubmit={handleSubmit}>
-          <input name="title" placeholder="Title" onChange={handleChange} required />
-          <input name="category" placeholder="Category" onChange={handleChange} required />
-          <input name="amount" type="number" placeholder="Amount" onChange={handleChange} required />
-          <input name="date" placeholder="01-Oct-25" onChange={handleChange} required />
+          <input name="title" placeholder="Title" value={form.title} onChange={handleChange} required />
+          <input name="category" placeholder="Category" value={form.category} onChange={handleChange} required />
+          <input name="amount" type="number" placeholder="Amount" value={form.amount} onChange={handleChange} required />
+          <input name="date" placeholder="01-Oct-25" value={form.date} onChange={handleChange} required />
           <button type="submit">Add Expense</button>
         </form>
       </div>
 
-      <div className="expense-list">
-        {expenses.map((e) => <ExpenseCard key={e.id} expense={e} />)}
-      </div>
+     <div className="expense-list">
+  {expenses.map((e) => (
+    <ExpenseCard
+      key={e.id}
+      expense={e}
+      onUpdate={fetchExpenses}
+      onDelete={(id) => setExpenses(expenses.filter((ex) => ex.id !== id))}
+    />
+  ))}
+</div>
 
       <div className="ai-box">
         <textarea value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Ask AI something about your expenses..." />
