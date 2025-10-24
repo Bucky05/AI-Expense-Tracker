@@ -34,7 +34,7 @@ const ExpenseCard = ({ expense, onUpdate, onDelete }) => {
           <h4>{expense.title}</h4>
           <p><strong>Category:</strong> {expense.category}</p>
           <p><strong>Amount:</strong> ₹{expense.amount}</p>
-          <p><strong>Date:</strong> {expense.date}</p>
+          <p><strong>Date:</strong> {expense.date.slice(0,expense.date.indexOf("T"))}</p>
 
           <div className="actions">
             <button onClick={() => setIsEditing(true)}>✏️ Edit</button>
